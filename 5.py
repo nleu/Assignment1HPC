@@ -8,18 +8,15 @@ def read_arguments(argv):
     inputfile = ''
     locationfile = ''
     try:
-        opts, args = getopt.getopt(argv,"hi:l:")
+        opts, args = getopt.getopt(argv,"i:l:")
     except getopt.GetoptError as error:
         print(error)
         sys.exit(2)
     for opt, arg in opts:
-        if opt == '-h':
-            sys.exit()
-        elif opt in ("-i"):
+        if opt in ("-i"):
             inputfile = arg
         elif opt in ("-l"):
             locationfile = arg
-
     return inputfile, locationfile
 
 def readFile(input_file, area,comm,list2):
@@ -53,7 +50,6 @@ def readFile(input_file, area,comm,list2):
                 l = set([k[1:].lower() for k in l if k and k[0]=='#'])
             else:
                 continue
-
             for s in l:
                 if len(s)<=33:
                     list2[areaName][s] += 1
