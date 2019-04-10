@@ -85,7 +85,6 @@ def main(argv):
             for key2 in list2C:
                 for s in list2C[key2]:
                     list3[key2][s] = list3[key2][s] + list2C[key2][s]
-                #list3[key2] = {k:v for k, v in list3[key2].items() if not v == 1}
         list1 = {k:v.get(k,0) for k, v in list3.items()}
         print("Total valid tweets: ",sum(list1.values()))
         firstResult = sorted(list1.items(), key=operator.itemgetter(1), reverse=True)
