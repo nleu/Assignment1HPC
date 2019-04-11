@@ -8,15 +8,18 @@ def read_arguments(argv):
     inputfile = ''
     locationfile = ''
     try:
-        opts, args = getopt.getopt(argv,"i:l:")
+        opts, args = getopt.getopt(argv,"hi:l:")
     except getopt.GetoptError as error:
         print(error)
         sys.exit(2)
     for opt, arg in opts:
-        if opt in ("-i"):
+        if opt == '-h':
+            sys.exit()
+        elif opt in ("-i"):
             inputfile = arg
         elif opt in ("-l"):
             locationfile = arg
+
     return inputfile, locationfile
 
 def readFile(input_file, area,comm,list2):
@@ -31,7 +34,7 @@ def readFile(input_file, area,comm,list2):
             strLocation = "coordinates\":{\"type\":\"Point\",\"coordinates\":["
             whereIs = line.find(strLocation)
             if whereIs > -1:
-                x = [float(i) for i in line[(whereIs+44):(whereIs+70)].split(']')[0].split(',')]
+                x = [float(i) for i in line[(whereIs+44):(whereIs+70)].split(']')[0].split(',')]              
             else:
                 continue
             areaName = ""
@@ -50,6 +53,7 @@ def readFile(input_file, area,comm,list2):
                 l = set([k[1:].lower() for k in l if k and k[0]=='#'])
             else:
                 continue
+
             for s in l:
                 if len(s)<=33:
                     list2[areaName][s] += 1
@@ -74,13 +78,14 @@ def main(argv):
             list3[a["id"]] = defaultdict(int)
             areaList.append(a["id"])
     list2 = readFile(input_file, area,comm,list2)
-    list2 = {k:v for k, v in list2.items() if not v == 1}    
     list2 = comm.gather(list2,root=0)
     if rank ==0:
         for list2C in list2:
             for key2 in list2C:
                 for s in list2C[key2]:
                     list3[key2][s] = list3[key2][s] + list2C[key2][s]
+        for key2 in list2C:
+            list3[key2] = {k:v for k, v in list3[key2].items() if not v == 1}
         list1 = {k:v.get(k,0) for k, v in list3.items()}
         print("Total valid tweets: ",sum(list1.values()))
         firstResult = sorted(list1.items(), key=operator.itemgetter(1), reverse=True)
