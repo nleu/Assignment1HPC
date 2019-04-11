@@ -1,0 +1,38 @@
+Total valid tweets:  402007
+C2 : 145136 posts
+B2 : 79639 posts
+C3 : 53308 posts
+B3 : 26554 posts
+C4 : 19700 posts
+B1 : 16508 posts
+D4 : 14497 posts
+D3 : 13389 posts
+C1 : 8427 posts
+B4 : 5450 posts
+A3 : 5036 posts
+A2 : 4165 posts
+C5 : 4106 posts
+D5 : 3249 posts
+A1 : 2533 posts
+A4 : 310 posts
+C2: [('melbourne', 9764), ('australia', 1498), ('job', 1388), ('jobs', 964), ('job:', 501)]
+B2: [('melbourne', 813), ('australia', 153), ('auspol', 130), ('brunswick', 93), ('fitzroy', 85)]
+C3: [('melbourne', 465), ('australia', 140), ('coffee', 100), ('oneorigin_specialtycoffee', 71), ('food', 67)]
+B3: [('melbourne', 159), ('australia', 60), ('fitness', 53), ('pocus', 50), ('fashion', 41)]
+C4: [('alishas1million', 96), ('melbourne', 80), ('auspol', 49), ('kca', 43), ('savedallas', 42)]
+B1: [('melbourne', 170), ('', 73), ('kca', 69), ('australia', 56), ('bds', 49)]
+D4: [('nowplaying', 1730), ('melbourne', 28), ('dandenong.', 27), ('job', 26), ('jobs', 22)]
+D3: [('melbourne', 76), ('beach', 56), ('summer', 26), ('australia', 23), ('followmenash', 21)]
+C1: [('melbourne', 50), ('lifeofnash', 43), ('3daysforexpelledmovie', 40), ('askbeau\\ntweet', 33), ('lfc', 31)]
+B4: [('melbourne', 32), ('smallzywelcomeshome5sos', 26), ('vicfires', 19), ('fire', 19), ('socialmedia', 18)]
+A3: [('vicfires', 19), ('saveconstantine', 12), ('epping.', 11), ('raw', 7), ('love', 7)]
+A2: [('krazykristmas', 165), ('egsholidaygiveaway', 57), ('rcl1milliongiveaway', 53), ('vdaywithbeth', 37), ('craigieburn.', 31)]
+C5: [('melbourne', 53), ('australia', 17), ('dandenongs', 13), ('1000steps', 11), ('travel', 10)]
+D5: [('cat,', 25), ('somebodytocon', 23), ('melbourne', 22), ('lost', 20), ('voteukvampettes', 18)]
+A1: [('tattoo', 11), ('melbourne', 11), ('worldjudo2014', 9), ('drawing', 8), ('design', 8)]
+A4: [('lnp', 4), ('vicfires', 3), ('qldvotes', 3), ('birthday', 2), ('mytribe', 2)]
+rank 0 :  39.48 s
+
+real    0m39.662s
+user    0m36.787s
+sys     0m2.826s
