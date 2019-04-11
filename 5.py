@@ -58,8 +58,7 @@ def readFile(input_file, area,comm,list2):
                 if len(s)<=33:
                     list2[areaName][s] += 1
     return list2
-	
-def main(argv):
+	def main(argv):
     tic = time.clock()
     input_file,locationfile = read_arguments(argv)
     comm = MPI.COMM_WORLD
@@ -78,13 +77,13 @@ def main(argv):
             list3[a["id"]] = defaultdict(int)
             areaList.append(a["id"])
     list2 = readFile(input_file, area,comm,list2)
-    list2 = comm.gather(list2,root=0)
+    list2Combine = comm.gather(list2,root=0)
     if rank ==0:
-        for list2C in list2:
+        for list2C in list2Combine:
             for key2 in list2C:
                 for s in list2C[key2]:
                     list3[key2][s] = list3[key2][s] + list2C[key2][s]
-        for key2 in list2C:
+        for key2 in list3:
             list3[key2] = {k:v for k, v in list3[key2].items() if not v == 1}
         list1 = {k:v.get(k,0) for k, v in list3.items()}
         print("Total valid tweets: ",sum(list1.values()))
@@ -98,3 +97,4 @@ def main(argv):
     print("rank",rank,": ",time.clock()-tic, "s")
 if __name__ == "__main__":
     main(sys.argv[1:])
+
