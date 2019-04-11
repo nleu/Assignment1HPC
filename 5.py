@@ -25,7 +25,7 @@ def read_arguments(argv):
 def readFile(input_file, area,comm,list2):
     size = comm.size
     rank = comm.rank
-    byteperline = 3550
+    byteperline = 4000
     filesize = os.path.getsize(input_file)
     linesCount = int(math.ceil(filesize/byteperline))
     limit = int(math.ceil(linesCount/size))
